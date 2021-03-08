@@ -20,6 +20,8 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
         tableView.refreshControl = myRefreshControl //this tells the table view to use the Refresh Control named  myRefreshControl
+        self.tableView.rowHeight = UITableView.automaticDimension //the height of the rows in the table view are automatically calculated based on the length of a tweet.
+        self.tableView.estimatedRowHeight = 150
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -78,6 +80,12 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data { //sets profileImageView or the UIImage in the cell to the image in data
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        
+        
+        //the method setFavorite is defined in TweetTableViewCell.swift file
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool) // the boolean value for the key favorited for a tweet is passed as argument to the setFavorite method, which will change the favorite icon image/color depending on whether that tweet has been favorited or not. If favorited has value true, then the fav icon will be set to the red icon, but it favorited has value false, then it is set to the default grey fav icon.
+        
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int //each tweet in each row has a key called "id" whose value is the numerical ID of the Tweet. This is exactly what we need to provide as argument for the favoriteTweet and unfavoriteTweet functions
         return cell
     }
     

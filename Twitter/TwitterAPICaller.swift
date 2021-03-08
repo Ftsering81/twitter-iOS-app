@@ -73,8 +73,26 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
         }, failure: { (task: URLSessionDataTask?, error: Error) in
             failure(error)
         })
-        
-
+    }
+    
+    //This function favorites a tweet by sending a POST request to the favorites/create API endpoint. 
+    func favoriteTweet(tweetId: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+        let url = "https://api.twitter.com/1.1/favorites/create.json"
+        TwitterAPICaller.client?.post(url, parameters:["id": tweetId], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            success()
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
+    }
+    
+    //This function UNfavorites a tweet by sending a POST request to the favorites/destroy API endpoint
+    func unfavoriteTweet(tweetId: Int, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+        let url = "https://api.twitter.com/1.1/favorites/destroy.json"
+        TwitterAPICaller.client?.post(url, parameters:["id": tweetId], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            success()
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
     }
     
 }
