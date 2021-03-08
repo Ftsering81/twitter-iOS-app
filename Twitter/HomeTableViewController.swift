@@ -18,15 +18,13 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() { //runs when the screen is loaded for the first time.
         //loads all the information we need before showing a screen
         super.viewDidLoad()
-        loadTweet() //we call this function inside the viewDidLoad() because we want to load our list of tweeets when the screen is done loading. This is where we want to initialize our tweetArray variable.
-        
-        //applying the addTarget() function to your UIRefreshControldding basically means what kind of action do you want to tie to your RefreshControl
-        //the target is where you want the action to occur when Refresh Control happens. We want the action to happen in the same screen where we pull refresh which is in this screen or the HomeTableViewController, so put self for target. Anything that will happen on refresh control will happen on this screen.
-        //Selector  is asking what action do you want to occur when user pulls to refresh. What we want to happen is that we want the loadTweet() function to be called again so that tweetArray is updated with the most recent list of tweets from the user's home timeline.
         myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
         tableView.refreshControl = myRefreshControl //this tells the table view to use the Refresh Control named  myRefreshControl
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadTweet() 
+    }
     
     //When this function is called, it sends a request to the Twitter API's statuses/home_timeline endpoint by using its resource url in order to retrieve a list of the most recent tweets posted by the authenticating user and the users they follow in their home timeline.
     @objc func loadTweet(){
