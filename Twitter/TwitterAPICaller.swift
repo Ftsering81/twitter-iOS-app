@@ -39,6 +39,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
         deauthorize()
     }
     
+    //pulls one single dictionary or one single tweet from the API
     func getDictionaryRequest(url: String, parameters: [String:Any], success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()){
         TwitterAPICaller.client?.get(url, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
             success(response as! NSDictionary)
@@ -46,7 +47,7 @@ class TwitterAPICaller: BDBOAuth1SessionManager {
             failure(error)
         })
     }
-    
+    //pulls a list of dictionaries 
     func getDictionariesRequest(url: String, parameters: [String:Any], success: @escaping ([NSDictionary]) -> (), failure: @escaping (Error) -> ()){
         print(parameters)
         TwitterAPICaller.client?.get(url, parameters: parameters, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
