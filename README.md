@@ -3,14 +3,14 @@
 
 This is a basic twitter app to view, compose, favorite, and retweet tweets.
 
-Time spent: **X** hours spent in total
+Time spent: **5** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
 - [x] User can compose a tweet. (4pts)
-- [ ] User can favorite a tweet. (4pts)
+- [x] User can favorite a tweet. (4pts)
 - [ ] User can retweet a tweet. (2pts)
 
 The following **bonus** features are implemented:
@@ -21,6 +21,9 @@ The following **bonus** features are implemented:
 
 ## Video Walkthrough
 ![twitter2](https://user-images.githubusercontent.com/62700031/110276307-d9c51980-7fa0-11eb-9228-bc40c60c9b59.gif)
+![twitter2likes](https://user-images.githubusercontent.com/62700031/110288147-92955380-7fb5-11eb-92f3-30e3fbeb5ebd.gif)
+
+
 
 
 **Twitter** is a basic twitter app to read your tweets.
