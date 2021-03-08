@@ -20,8 +20,8 @@ The following **bonus** features are implemented:
 - [ ] User sees embedded images in tweet if available. (3pts)
 
 ## Video Walkthrough
-![twitter2](https://user-images.githubusercontent.com/62700031/110276307-d9c51980-7fa0-11eb-9228-bc40c60c9b59.gif)
-![twitter2likes](https://user-images.githubusercontent.com/62700031/110288147-92955380-7fb5-11eb-92f3-30e3fbeb5ebd.gif)
+![twitter2fav](https://user-images.githubusercontent.com/62700031/110288994-cf157f00-7fb6-11eb-9c9b-6eeb72e87414.gif)
+
 
 
 
